@@ -1,0 +1,7 @@
+1. How to clone a specific branch from github:
+   git clone --branch <branchname> <remote-repo-url>
+	or
+   git clone -b <branchname> <remote-repo-url>
+
+2. How to get last commit id :
+    git log --pretty=oneline

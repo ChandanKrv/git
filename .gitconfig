@@ -1,0 +1,60 @@
+[alias]
+	ac = "!f() { git add . && git commit -m \"$(echo $@)\" ; }; f";
+        up = "!f() { git add . && git commit -m \"$(echo $@)\" && git push ; }; f";
+        upi = "!f() { git add . && git commit -m'initial commit' && git push ; }; f";
+        s = status
+	d = diff
+	c = checkout
+        cm = checkout master
+
+	# Lists local branches
+	b = branch
+	# Lists remote branches
+	br = branch -r
+	# Lists all local and remote branches
+	ba = branch -a
+	# Shows detailed information like commit ids and commit messages
+	bva = branch -vva
+	#or git branch -vv 
+	
+	# To create new Branch
+        cb = checkout -b
+	
+	# Shows all .gitconfig details
+        gconfig = config --global -l
+	
+	# Shows remote Origin URL
+	rtv = remote -v
+	
+	# Shows formatted logs
+        l = log --pretty=oneline
+	
+	# Set Push Upstream for all branches
+	upall = push -u origin --all
+
+ 	#ph = push
+        #pl = pull
+
+ 	# Undo changes not commited
+        #undo = reset --hard;
+	undo = reset --hard 
+
+        # Undo a `git push`
+        undopush = push -f origin HEAD^:master;
+
+        # Undo merge
+        undomerge = reset --hard HEAD@{1};
+
+        # Undo last commit and remove from stage
+        # git unstage file1 file2 ...
+	#unstage = restore --staged--
+	last = log -1 HEAD --stat
+
+	#git reflog
+	
+	se = !git rev-list --all | xargs git grep -F
+	dv = difftool -t vimdiff -y
+       
+[user]
+	name = ChandanKrv
+	email = 
