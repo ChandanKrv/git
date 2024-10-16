@@ -30,10 +30,14 @@
         l = log --pretty=oneline
 	
 	# Set Push Upstream for all branches
-	upall = push -u origin --all
+	#upall = push -u origin --all
 
- 	#ph = push
-        #pl = pull
+	# Set Upstream for new branch
+	# e.g: git push --set-upstream origin branch_name
+	pushnb = push --set-upstream origin
+
+ 	ph = push
+        pl = pull
 
  	# Undo changes not commited
         #undo = reset --hard;
