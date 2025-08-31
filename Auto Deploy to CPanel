@@ -1,0 +1,29 @@
+Github Auto Deploy to CPanel
+
+Create these folders and a .yml file: .github/workflow/AutoDeploy.yml
+
+
+File Name: AutoDeploy.yml
+
+name: Deploy to CPanel when code pushed to master branch
+on:
+  push:
+    branches:
+      - master
+jobs:
+  FTP-Deploy-Action:
+    name: 🎉 FTP - Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }} # Set this secret in github for this repo.
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+
+          dangerous-clean-slate: false # set to true if you want to wipe remote first
